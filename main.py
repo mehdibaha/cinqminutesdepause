@@ -44,15 +44,15 @@ def send_mail(recipient, subject, body):
     try:
         sg.client.mail.send.post(request_body=mail.get())
     except Exception as error:
-        print('Email not sent for {recipient}. Following error has occured:\n{error}')
+        print(f'Email not sent for {recipient}. Following error has occured:\n{error}')
 
+def do_job():
+	is_valid = True
+	# While articles found are not nalid
+	while is_valid:
+		rand_page = random.randint(MIN_PAGE, MAX_PAGE)
+		articles = get_articles_by_page(rand_page)
+		is_valid = len(articles) == 0
 
-is_valid = True
-# While articles found are not nalid
-while is_valid:
-	rand_page = random.randint(MIN_PAGE, MAX_PAGE)
-	articles = get_articles_by_page(rand_page)
-	is_valid = len(articles) == 0
-
-article = random.choice(articles)
-send_mail('elmehdi.baha@gmail.com', 'Cinq minutes de pause', article)
+	article = random.choice(articles)
+	send_mail('elmehdi.baha@gmail.com', 'Cinq minutes de pause', article)
