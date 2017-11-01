@@ -56,4 +56,3 @@ def do_job():
 
 	article = random.choice(articles)
 	send_mail('elmehdi.baha@gmail.com', 'Cinq minutes de pause', article)
-	send_mail('juliettebricout@live.fr', 'Cinq minutes de pause', article)
